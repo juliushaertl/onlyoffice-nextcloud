@@ -115,7 +115,7 @@ class FileCreator extends ACreateEmpty {
      * @return string
      */
     public function getExtension(): string {
-        return "." . $this->format;
+        return $this->format;
     }
 
     /**
