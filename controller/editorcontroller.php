@@ -496,7 +496,11 @@ class EditorController extends Controller {
             "directToken" => null
         ];
 
-        $response = new TemplateResponse($this->appName, "editor", $params);
+        if ($this->config->GetSameTab()) {
+            $response = new TemplateResponse($this->appName, "editor", $params, 'plain');
+        } else {
+            $response = new TemplateResponse($this->appName, "editor", $params);
+        }
 
         $csp = new ContentSecurityPolicy();
         $csp->allowInlineScript(true);

@@ -28,6 +28,14 @@
 
 (function ($, OCA) {
 
+    document.getElementById('close').addEventListener('click', function () {
+        parent.postMessage('close');
+    });
+
+    document.getElementById('details').addEventListener('click', function () {
+        parent.postMessage('toggleFilesSidebar');
+    })
+
     OCA.Onlyoffice = _.extend({
             AppName: "onlyoffice"
         }, OCA.Onlyoffice);
@@ -112,6 +120,10 @@
 
                     config.events = {
                         "onDocumentStateChange": setPageTitle,
+                        /* FIXME: this doesn't work as expected */
+                        "onRequestClose": function () {
+                            console.log('onRequestClose')
+                        }
                     };
 
                     if (OC.currentUser) {
