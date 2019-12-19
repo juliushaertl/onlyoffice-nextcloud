@@ -675,7 +675,7 @@ class EditorController extends Controller {
         }
 
         if ($folderLink !== NULL
-            && empty(directToken) //todo: fix in ds 5.5
+            && empty($directToken) //todo: fix in ds 5.5
             ) {
             $params["editorConfig"]["customization"]["goback"] = [
                 "url"  => $folderLink
